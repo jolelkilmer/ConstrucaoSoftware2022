@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<title>Loja de Roupas</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<h1>Lista de Clientes</h1>
+	<h3>
+		<a href="/cadastrarCliente">Cadastrar novo cliente!</a>
+	</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Nome Completo</th>
+				<th>Telefone</th>
+				<th>Rua</th>
+				<th>Bairro</th>
+				<th>Número da Casa</th>
+				<th>C.P.F</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="cliente : ${clientes}">
+				<td><span th:text="${cliente.cliente_nome_completo}"></span></td>
+				<td><span th:text="${cliente.cliente_telefone}"></span></td>
+				<td><span th:text="${cliente.cliente_rua}"></span></td>
+				<td><span th:text="${cliente.cliente_bairro}"></span></td>
+				<td><span th:text="${cliente.cliente_numero_casa}"></span></td>
+				<td><span th:text="${cliente.cliente_cpf}"></span></td>
+				<td><a class="btn btn-danger" th:href="${(#mvc.url('CC#removerCliente').arg(0, cliente.codigo)).build()}">Remover</a></td>
+				
+			</tr>
+		</tbody>
+	</table>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>
