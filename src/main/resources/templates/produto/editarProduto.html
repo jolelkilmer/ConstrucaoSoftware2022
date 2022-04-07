@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Loja de Roupas</title>
+</head>
+<body>
+
+	<h1>Editar Cliente</h1>
+	<form action="#" th:action="@{cliente/salvarEdicao}" method="POST" th:object="${cliente}">
+		Nome Completo: <input 	type="text" th:field="*{cliente_nome_completo}"/>
+		Telefone: <input 		type="text" th:field="*{cliente_telefone}"/>
+		Nome da Rua: <input 	type="text" th:field="*{cliente_rua}"/>
+		Bairro: <input 			type="text" th:field="*{cliente_bairro}"/>
+		Número da Casa: <input 	type="text" th:field="*{cliente_numero_casa}"/>
+		C.P.F: <input 			type="text" th:field="*{cliente_cpf}"/>
+		
+		<button type="submit">Salvar Edição</button>
+	</form>
+
+</body>
+</html>
