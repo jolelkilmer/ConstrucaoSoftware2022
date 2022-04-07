@@ -1,4 +1,4 @@
-package controller;
+package com.uem.loja.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class RelatorioControler {
 	@Controller
 	public class RelatorioController {
-		@ReqestMapping("/cadastrarRelatorio")
+		@RequestMapping("/cadastrarRelatorio")
 		public String form(){
 			return "formRelatorio";
 		}

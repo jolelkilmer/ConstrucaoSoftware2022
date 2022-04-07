@@ -8,7 +8,7 @@
 <body>
 
 	<h1>Editar Cliente</h1>
-	<form action="#" th:action="@{cliente/salvarEdicao}" method="POST" th:object="${cliente}">
+	<form action="#" th:action="@{/cadastrarCliente}" method="POST" th:object="${cliente}">
 		Nome Completo: <input 	type="text" th:field="*{cliente_nome_completo}"/>
 		Telefone: <input 		type="text" th:field="*{cliente_telefone}"/>
 		Nome da Rua: <input 	type="text" th:field="*{cliente_rua}"/>
@@ -17,6 +17,7 @@
 		C.P.F: <input 			type="text" th:field="*{cliente_cpf}"/>
 		
 		<button type="submit">Salvar Edição</button>
+		<input 			type="hidden" th:field="*{codigo}"/>
 	</form>
 
 </body>

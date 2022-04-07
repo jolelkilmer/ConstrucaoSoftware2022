@@ -37,7 +37,7 @@
 				<td><span th:text="${cliente.cliente_numero_casa}"></span></td>
 				<td><span th:text="${cliente.cliente_cpf}"></span></td>
 				<td><a class="btn btn-danger" th:href="${(#mvc.url('CC#removerCliente').arg(0, cliente.codigo)).build()}">Remover</a></td>
-				
+				<td><a class="btn btn-warning" th:href="@{/editarCliente(codigo=${cliente.codigo})}">Editar</a></td>
 			</tr>
 		</tbody>
 	</table>

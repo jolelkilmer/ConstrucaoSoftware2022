@@ -2,8 +2,10 @@ package com.uem.loja.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uem.loja.models.Cliente;
@@ -20,7 +22,9 @@ public class ClienteController {
 
 		return "cliente/formCliente";
 	}
+	
 
+	//Metodo para cadastrar novo cliente e salvar edição
 	@RequestMapping(value = "/cadastrarCliente", method = RequestMethod.POST)
 	public String form(Cliente cliente) {
 
@@ -42,6 +46,14 @@ public class ClienteController {
 		Cliente cliente = clienteRepo.findByCodigo(codigo);
 		clienteRepo.delete(cliente);
 		return "redirect:/clientes";
+	}
+	
+	@GetMapping("/editarCliente")
+	public ModelAndView editarCliente(@RequestParam long codigo) {
+		ModelAndView mav = new ModelAndView("cliente/editarCliente");
+		Cliente cliente = clienteRepo.findByCodigo(codigo);
+		mav.addObject("cliente", cliente);
+		return mav;
 	}
 
 }
