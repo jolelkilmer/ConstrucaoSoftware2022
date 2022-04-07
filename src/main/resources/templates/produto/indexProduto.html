@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8" />
+
+<title>Loja de Roupas</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+	<h1>Lista de Produtos</h1>
+	<h3>
+		<a href="/produtos/cadastrar">Cadastrar novo produto!</a>
+	</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Código de Barras</th>
+				<th>Tamanho</th>
+				<th>Cor</th>
+				<th>Valor</th>
+				<th>Fornecedor</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="produto : ${produtos}">
+				<td><span th:text="${produto.cod_barras}"></span></td>
+				<td><span th:text="${produto.tamanho}"></span></td>
+				<td><span th:text="${produto.cor}"></span></td>
+				<td><span th:text="${produto.valor}"></span></td>
+			</tr>
+		</tbody>
+	</table>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+</html>
