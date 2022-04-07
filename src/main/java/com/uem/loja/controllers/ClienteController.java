@@ -35,7 +35,7 @@ public class ClienteController {
 
 	@RequestMapping("/clientes")
 	public ModelAndView listaCliente() {
-		ModelAndView mv = new ModelAndView("index");
+		ModelAndView mv = new ModelAndView("cliente/indexCliente");
 		Iterable<Cliente> clientes = clienteRepo.findAll();
 		mv.addObject("clientes", clientes);
 		return mv;
@@ -45,7 +45,7 @@ public class ClienteController {
 	public String removerCliente(long codigo) {
 		Cliente cliente = clienteRepo.findByCodigo(codigo);
 		clienteRepo.delete(cliente);
-		return "redirect:/clientes";
+		return "redirect:/indexCliente";
 	}
 	
 	@GetMapping("/editarCliente")

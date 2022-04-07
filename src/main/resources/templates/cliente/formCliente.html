@@ -1,23 +1,50 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-	<meta charset="UTF-8" />
-	<title>Loja de Roupas</title>
+<meta charset="UTF-8" />
+<title>Loja de Roupas - Cadastro de Clientes</title>
+<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
 </head>
 <body>
 
-	<h1>Cadastro de Clientes</h1>
-	<form method="post">
-		Nome Completo: <input 	type="text" value="" name="cliente_nome_completo"/>
-		Telefone: <input 		type="text" value="" name="cliente_telefone"/>
-		Nome da Rua: <input 	type="text" value="" name="cliente_rua"/>
-		Bairro: <input 			type="text" value="" name="cliente_bairro"/>
-		Número da Casa: <input 	type="text" value="" name="cliente_numero_casa"/>
-		C.P.F: <input 			type="text" value="" name="cliente_cpf"/>
-		
-		<button type="submit">Salvar Cadastro</button>
-	</form>
+	<div class="container">
 
+		<h1>Cadastro de Clientes</h1>
+		<form method="post">
+			<div class="form-group">
+				<label for="label1">Nome Completo:</label>
+				<input type="text" value="" name="cliente_nome_completo" placeholder="Nome Completo" class="form-control" id="label1" /> 
+			</div>
+			<div class="form-group">
+				<label for="label2">Telefone:</label>
+				<input type="text" value="" name="cliente_telefone" placeholder="Telefone" class="form-control" id="label2"/> 
+			</div>
+			<div class="form-group">
+				<label for="label3">Nome da Rua:</label>
+				<input type="text" value="" name="cliente_rua" placeholder="Nome da Rua" class="form-control" id="label3"/>
+			</div>
+			<div class="form-group">
+				<label for="label4">Bairro:</label>
+				<input type="text" value="" name="cliente_bairro" placeholder="Bairro" class="form-control" id="label4"/> 
+			</div>
+			<div class="form-group">
+				<label for="label5">Número da Casa:</label>
+				<input type="text" value="" name="cliente_numero_casa" placeholder="Número da Casa" class="form-control" id="label5"/> 
+			</div>
+			<div class="form-group">
+				<label for="label6">C.P.F:</label>
+				<input type="text" value="" name="cliente_cpf" placeholder="C.P.F" class="form-control" id="label6"/>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-primary" type="submit">Salvar Cadastro</button> <a class="btn btn-primary" href="/indexCliente">Voltar a Área de Clientes</a>
+			</div>
+			
+	</form>
+	
+	</div>
 </body>
 </html>
