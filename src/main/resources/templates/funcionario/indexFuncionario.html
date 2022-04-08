@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<title>Loja de Roupas</title>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+	<div class="container">
+
+	<h1>Área de Funcionarios</h1>
+	<h3>
+		<a class="btn btn-primary" href="/cadastrarFuncionario">Cadastrar Novo Funcionario</a>
+		<a class="btn btn-primary" href="/">Voltar a Página Inicial</a>
+	</h3>
+	<table class="table table-bordered table-striped">
+		<thead>
+			<tr>
+				<th>Nome Completo</th>
+				<th>Telefone</th>
+				<th>Rua</th>
+				<th>Bairro</th>
+				<th>Número da Casa</th>
+				<th>C.P.F</th>
+                <th>Cargo</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="funcionario : ${funcionarios}">
+				<td><span th:text="${funcionario.nome_completo}"></span></td>
+				<td><span th:text="${funcionario.telefone}"></span></td>
+				<td><span th:text="${funcionario.rua}"></span></td>
+				<td><span th:text="${funcionario.bairro}"></span></td>
+				<td><span th:text="${funcionario.numero_casa}"></span></td>
+				<td><span th:text="${funcionario.cpf}"></span></td>
+                <td><span th:text="${funcionario.cargo}"></span></td>
+				<td><a class="btn btn-warning" th:href="@{/editarFuncionario(codigo=${funcionario.codigo})}">Editar</a></td>
+				<td><a class="btn btn-danger" th:href="@{/removerFuncionario(codigo=${funcionario.codigo})}">Remover</a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	</div>
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</body>
+
+</html>
