@@ -22,19 +22,18 @@ public class Fornecedor  implements Serializable{
 	private String fornecedor_rua;
 	private String fornecedor_bairro;
 	private String fornecedor_numero_casa;
-	private String fornecedor_cpf;
+	private String fornecedor_cnpj;
 	
 	@Deprecated
 	protected Fornecedor() {
 		
 	}
 	
-	
-	/*Nome e CPF são dados obrigatórios*/
-	public Fornecedor(String fornecedor_nome_completo, String fornecedor_cpf) {
+	/*Nome e CNPJ são dados obrigatórios*/
+	public Fornecedor(String fornecedor_nome_completo, String fornecedor_cnpj) {
 		super();
 		this.fornecedor_nome_completo = fornecedor_nome_completo;
-		this.fornecedor_cpf = fornecedor_cpf;
+		this.fornecedor_cnpj = fornecedor_cnpj;
 	}
 
 
@@ -75,11 +74,11 @@ public class Fornecedor  implements Serializable{
 	public void setFornecedor_numero_casa(String fornecedor_numero_casa) {
 		this.fornecedor_numero_casa = fornecedor_numero_casa;
 	}
-	public String getFornecedor_cpf() {
-		return fornecedor_cpf;
+	public String getFornecedor_cnpj() {
+		return fornecedor_cnpj;
 	}
-	public void setFornecedor_cpf(String fornecedor_cpf) {
-		this.fornecedor_cpf = fornecedor_cpf;
+	public void setFornecedor_cnpj(String fornecedor_cnpj) {
+		this.fornecedor_cnpj = fornecedor_cnpj;
 	}
 	@Override
 	public int hashCode() {
