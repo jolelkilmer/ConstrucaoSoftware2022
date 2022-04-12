@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<meta charset="UTF-8" />
+	<title>Loja de Roupas - Editar Fornecedor</title>
+	<link rel="stylesheet"
+	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+	crossorigin="anonymous">
+</head>
+<body>
+
+	<div class="container">
+		<h1>Editar Fornecedor</h1>
+		<form action="#" th:action="@{/cadastrarFornecedor}" method="POST" th:object="${fornecedor}">
+			<div class="form-group">
+				<label for="label1">Nome Completo:</label>
+				<input 	type="text" th:field="*{fornecedor_nome_completo}" placeholder="Nome Completo" class="form-control" id="label1"/>
+			</div>
+			<div class="form-group">
+				<label for="label2">Telefone:</label>
+				<input 	type="text" th:field="*{fornecedor_telefone}" placeholder="Telefone" class="form-control" id="label2"/>
+			</div>
+			<div class="form-group">
+				<label for="label3">Nome da Rua:</label>
+				<input 	type="text" th:field="*{fornecedor_rua}" placeholder="Nome da Rua" class="form-control" id="label3"/>
+			</div>
+			<div class="form-group">
+				<label for="label4">Bairro:</label>
+				<input 	type="text" th:field="*{fornecedor_bairro}" placeholder="Bairro" class="form-control" id="label4"/>
+			</div>
+			<div class="form-group">
+				<label for="label5">Número Comercial:</label>
+				<input 	type="text" th:field="*{fornecedor_numero_comercial}" placeholder="Número da Comercial" class="form-control" id="label5"/>
+			</div>
+			<div class="form-group">
+				<label for="label6">C.N.P.J:</label>
+				<input 	type="text" th:field="*{fornecedor_cnpj}" placeholder="C.N.P.J" class="form-control" id="label6"/>
+			</div>
+			<div class="form-group">
+			<button class="btn btn-primary" type="submit">Salvar Edição</button> <a class="btn btn-primary" href="/indexFornecedor">Voltar a Área de Fornecedors</a>
+			</div>
+			<input 	type="hidden" th:field="*{codigo}"/>
+		</form>
+	</div>
+
+</body>
+</html>
