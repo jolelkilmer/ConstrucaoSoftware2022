@@ -1,23 +1,42 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
 	<meta charset="UTF-8" />
-	<title>Loja de Roupas</title>
+	<title>Loja de Roupas - Editar de Produtos</title>
+	<link rel="stylesheet"
+		  href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		  integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+		  crossorigin="anonymous">
 </head>
 <body>
 
-	<h1>Editar Cliente</h1>
-	<form action="#" th:action="@{cliente/salvarEdicao}" method="POST" th:object="${cliente}">
-		Nome Completo: <input 	type="text" th:field="*{cliente_nome_completo}"/>
-		Telefone: <input 		type="text" th:field="*{cliente_telefone}"/>
-		Nome da Rua: <input 	type="text" th:field="*{cliente_rua}"/>
-		Bairro: <input 			type="text" th:field="*{cliente_bairro}"/>
-		Número da Casa: <input 	type="text" th:field="*{cliente_numero_casa}"/>
-		C.P.F: <input 			type="text" th:field="*{cliente_cpf}"/>
-		
-		<button type="submit">Salvar Edição</button>
-	</form>
+<div class="container">
 
+	<h1>Cadastrando produto...</h1>
+	<form action="#" th:action="@{/produtos/cadastrar}" method="POST" th:object="${produtos}">
+		<div class="form-group">
+			<label for="label1">Código de Barras:</label>
+			<input type="text" name="cod_barras" th:field="*{cod_barras}" placeholder="Ex: 987654321" class="form-control" id="label1" />
+		</div>
+		<div class="form-group">
+			<label for="label2">Cor:</label>
+			<input type="text" name="cor" th:field="*{cor}" placeholder="Ex: Preto" class="form-control" id="label2"/>
+		</div>
+		<div class="form-group">
+			<label for="label3">Tamanho:</label>
+			<input type="text" name="tamanho" th:field="*{tamanho}" placeholder="Ex: G" class="form-control" id="label3"/>
+		</div>
+		<div class="form-group">
+			<label for="label4">Valor:</label>
+			<input type="number" th:field="*{valor}" min="0.00" step="0.01" name="valor" placeholder="Ex: 100,0"  class="form-control" id="label4"/>
+		</div>
+		<div class="form-group">
+			<button class="btn btn-primary" type="submit">Salvar Produto</button>
+			<a class="btn btn-primary" href="/produtos">Voltar a Área de Produtos</a>
+		</div>
+		<input 	type="hidden" th:field="*{id}"/>
+	</form>
+</div>
 </body>
 </html>
