@@ -46,7 +46,7 @@ public class FornecedorController {
 		return "redirect:/fornecedores";
 	}
 		
-	@GetMapping("/editarCliente")
+	@GetMapping("/editarFornecedor")
 	public ModelAndView editarFornecedor(@RequestParam long codigo) {
 		ModelAndView mav = new ModelAndView("fornecedor/editarFornecedor");
 		Fornecedor fornecedor = fornecedorRepo.findByCodigo(codigo);
