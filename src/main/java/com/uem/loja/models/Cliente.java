@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+
+import org.hibernate.validator.constraints.br.CPF;
 
 @Entity
 public class Cliente  implements Serializable{
@@ -17,11 +20,16 @@ public class Cliente  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
 
+	@NotBlank(message="O nome não pode estar em branco!")
 	private String cliente_nome_completo;
+	
 	private String cliente_telefone;
 	private String cliente_rua;
 	private String cliente_bairro;
 	private String cliente_numero_casa;
+	
+
+	@CPF(message="Insira um CPF válido!")
 	private String cliente_cpf;
 	
 	@Deprecated

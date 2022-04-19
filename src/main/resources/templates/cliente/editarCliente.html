@@ -10,17 +10,18 @@
 	crossorigin="anonymous">
 </head>
 <body>
-
+	<h3 th:text=${mensagem} align="center" class="text-danger"></h3>
 	<div class="container">
 		<h1>Editar Cliente</h1>
-		<form action="#" th:action="@{/cadastrarCliente}" method="POST" th:object="${cliente}">
+		<form action="#" th:action="@{/editarCliente}" method="POST" th:object="${cliente}">
 			<div class="form-group">
 				<label for="label1">Nome Completo:</label>
-				<input 	type="text" th:field="*{cliente_nome_completo}" placeholder="Nome Completo" class="form-control" id="label1"/>
+				<span th:if="${#fields.hasErrors('cliente_nome_completo')}" th:errors="*{cliente_nome_completo}" class="text-danger"></span>
+				<input 	type="text" th:field="*{cliente_nome_completo}" placeholder="Nome Completo" class="form-control" id="label1" required/>
 			</div>
 			<div class="form-group">
 				<label for="label2">Telefone:</label>
-				<input 	type="text" th:field="*{cliente_telefone}" placeholder="Telefone" class="form-control" id="label2"/>
+				<input 	type="text" th:field="*{cliente_telefone}" placeholder="Telefone" class="form-control" id="label2" data-mask="(00) 0 0000-0000"/>
 			</div>
 			<div class="form-group">
 				<label for="label3">Nome da Rua:</label>
@@ -32,11 +33,12 @@
 			</div>
 			<div class="form-group">
 				<label for="label5">Número da Casa:</label>
-				<input 	type="text" th:field="*{cliente_numero_casa}" placeholder="Número da Casa" class="form-control" id="label5"/>
+				<input 	type="text" th:field="*{cliente_numero_casa}" placeholder="Número da Casa" class="form-control" id="label5" maxlength="8"/>
 			</div>
 			<div class="form-group">
 				<label for="label6">C.P.F:</label>
-				<input 	type="text" th:field="*{cliente_cpf}" placeholder="C.P.F" class="form-control" id="label6"/>
+				<span th:if="${#fields.hasErrors('cliente_cpf')}" th:errors="*{cliente_cpf}" class="text-danger"></span>
+				<input 	type="text" th:field="*{cliente_cpf}" placeholder="C.P.F" class="form-control" id="label6" data-mask="000.000.000-00" required/>
 			</div>
 			<div class="form-group">
 			<button class="btn btn-primary" type="submit">Salvar Edição</button> <a class="btn btn-primary" href="/indexCliente">Voltar a Área de Clientes</a>
@@ -44,6 +46,9 @@
 			<input 	type="hidden" th:field="*{codigo}"/>
 		</form>
 	</div>
+	
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
 
 </body>
 </html>
