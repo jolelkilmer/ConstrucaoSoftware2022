@@ -13,6 +13,12 @@ public class IndexController {
 		return "redirect:/clientes";
 	}
 
+	@RequestMapping("/indexFornecedor")
+	public String indexFornecedor() {
+		
+		return "redirect:/fornecedores";
+	}
+
 	@RequestMapping("/indexFuncionario")
 	public String indexFuncionario() {
 		

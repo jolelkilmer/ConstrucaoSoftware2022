@@ -2,11 +2,14 @@ package com.uem.loja.models;
 
 import java.io.Serializable;
 import java.util.Objects;
-
+import org.springframework.util.Assert;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotBlank;
+import org.hibernate.validator.constraints.br.CNPJ;
+
 
 @Entity
 public class Fornecedor  implements Serializable{
@@ -17,11 +20,15 @@ public class Fornecedor  implements Serializable{
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;
 
+	@NotBlank(message="O nome não pode estar em branco!")
 	private String fornecedor_nome_completo;
+	
 	private String fornecedor_telefone;
 	private String fornecedor_rua;
 	private String fornecedor_bairro;
-	private String fornecedor_numero_casa;
+	private String fornecedor_numero_comercial;
+
+	@CNPJ(message="Insira um CNPJ válido!")
 	private String fornecedor_cnpj;
 	
 	@Deprecated
@@ -68,11 +75,11 @@ public class Fornecedor  implements Serializable{
 	public void setFornecedor_bairro(String fornecedor_bairro) {
 		this.fornecedor_bairro = fornecedor_bairro;
 	}
-	public String getFornecedor_numero_casa() {
-		return fornecedor_numero_casa;
+	public String getFornecedor_numero_comercial() {
+		return fornecedor_numero_comercial;
 	}
-	public void setFornecedor_numero_casa(String fornecedor_numero_casa) {
-		this.fornecedor_numero_casa = fornecedor_numero_casa;
+	public void setFornecedor_numero_comercial(String fornecedor_numero_comercial) {
+		this.fornecedor_numero_comercial = fornecedor_numero_comercial;
 	}
 	public String getFornecedor_cnpj() {
 		return fornecedor_cnpj;

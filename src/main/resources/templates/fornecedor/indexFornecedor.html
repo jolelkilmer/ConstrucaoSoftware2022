@@ -15,7 +15,7 @@
 
 	<div class="container">
 
-	<h1>Área de Fornecedors</h1>
+	<h1>Área de Fornecedores</h1>
 	<h3>
 		<a class="btn btn-primary" href="/cadastrarFornecedor">Cadastrar Novo Fornecedor</a>
 		<a class="btn btn-primary" href="/">Voltar a Página Inicial</a>
@@ -32,7 +32,7 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr th:each="fornecedor : ${fornecedors}">
+			<tr th:each="fornecedor : ${fornecedores}">
 				<td><span th:text="${fornecedor.fornecedor_nome_completo}"></span></td>
 				<td><span th:text="${fornecedor.fornecedor_telefone}"></span></td>
 				<td><span th:text="${fornecedor.fornecedor_rua}"></span></td>
