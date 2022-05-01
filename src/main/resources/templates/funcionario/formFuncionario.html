@@ -2,18 +2,48 @@
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="UTF-8" />
-<title>Loja de Roupas - Cadastro de Funcionarios</title>
-<link rel="stylesheet"
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
-	crossorigin="anonymous">
+	<meta charset="UTF-8" />
+	<title>Loja de Roupas - Cadastro de Funcionarios</title>
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+		crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<script type="text/javascript" th:src="@{../js/index.js}"></script>	
 </head>
 <body>
+	<nav class="navbar navbar-expand-custom navbar-mainbg">
+        <a class="navbar-brand navbar-logo" href="#">Cadastro de Funcionarios</a>
+        <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <i class="fas fa-bars text-white"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+				<li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-chart-bar"></i>Vendas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/indexCliente"><i class="fas fa-tachometer-alt"></i>Clientes</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="/indexFuncionario"><i class="far fa-address-book"></i>Funcionarios</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/indexFornecedor"><i class="far fa-clone"></i>Fornecedores</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/produtos"><i class="far fa-calendar-alt"></i>Produtos</a>
+                </li>               
+                <li class="nav-item">
+                    <a class="nav-link" href="javascript:void(0);"><i class="far fa-copy"></i>Relatorios</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
 
-	<div class="container">
-
-		<h1>Cadastro de Funcionarios</h1>
+	<div class="container mt-3">
 		<form method="post">
 			<div class="form-group">
 				<label for="label1">Nome Completo:</label>

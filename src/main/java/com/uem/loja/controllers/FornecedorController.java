@@ -38,7 +38,7 @@ public class FornecedorController {
 
 		fornecedorRepo.save(fornecedor);
 
-		return "redirect:/fornecedors";
+		return "redirect:/fornecedores";
 	}
 
 	@RequestMapping(value = "/editarFornecedor", method = RequestMethod.POST)
