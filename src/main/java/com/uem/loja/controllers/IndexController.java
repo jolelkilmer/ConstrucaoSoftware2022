@@ -3,6 +3,7 @@ package com.uem.loja.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class IndexController {
@@ -24,5 +25,11 @@ public class IndexController {
 		
 		return "redirect:/funcionarios";
 	}
+
+	@RequestMapping("/login")
+    public ModelAndView login(){
+        ModelAndView mv = new ModelAndView("Login");
+        return mv;
+    }
 	
 }
