@@ -2,7 +2,6 @@
 
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-
 	<head>
 		<meta charset="UTF-8" />
 		<title>Loja de Roupas</title>
@@ -13,65 +12,63 @@
 		<link rel="stylesheet" type="text/css" href="../css/index.css">
 		<script type="text/javascript" th:src="@{../js/index.js}"></script>
 	</head>
-<body>
-	<nav class="navbar navbar-expand-custom navbar-mainbg">
-		<a class="navbar-brand navbar-logo" href="#">CLIENTES</a>
-		<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<i class="fas fa-bars text-white"></i>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-cash-register"></i>Vendas</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/indexCliente"><i class="far fa-address-book"></i>Clientes</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/indexFuncionario"><i class="fa-solid fa-user-gear"></i>Funcionários</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/indexFornecedor"><i class="fa-solid fa-truck"></i>Fornecedores</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/produtos"><i class="fa-solid fa-box"></i>Produtos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-chart-column"></i>Relatorios</a>
-				</li>
-			</ul>
+	<body>
+		<nav class="navbar navbar-expand-custom navbar-mainbg">
+			<a class="navbar-brand navbar-logo" href="#">CLIENTES</a>
+			<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexVendas"><i class="fa-solid fa-cash-register"></i>Vendas</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/indexCliente"><i class="far fa-address-book"></i>Clientes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexFuncionario"><i class="fa-solid fa-user-gear"></i>Funcionários</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexFornecedor"><i class="fa-solid fa-truck"></i>Fornecedores</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/produtos"><i class="fa-solid fa-box"></i>Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-chart-column"></i>Relatorios</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container mt-5">
+			<table class="table table-bordered table-striped">
+				<thead>
+					<tr>
+						<th>Nome Completo</th>
+						<th>Telefone</th>
+						<th>Logradouro</th>
+						<th>Bairro</th>
+						<th>Número da Casa</th>
+						<th>CPF</th>
+						<th colspan="2" class="text-center"><a class="btn btn-success" href="/cadastrarCliente">Novo Cliente</a></th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente : ${clientes}">
+						<td><span th:text="${cliente.cliente_nome_completo}"></span></td>
+						<td><span th:text="${cliente.cliente_telefone}"></span></td>
+						<td><span th:text="${cliente.cliente_rua}"></span></td>
+						<td><span th:text="${cliente.cliente_bairro}"></span></td>
+						<td><span th:text="${cliente.cliente_numero_casa}"></span></td>
+						<td><span th:text="${cliente.cliente_cpf}"></span></td>
+						<td><a class="btn btn-warning" th:href="@{/editarCliente(codigo=${cliente.codigo})}">Editar</a></td>
+						<td><a class="btn btn-danger" th:href="${(#mvc.url('CC#removerCliente').arg(0, cliente.codigo)).build()}">Remover</a></td>
+					</tr>
+				</tbody>
+			</table>
 		</div>
-	</nav>
-	<div class="container mt-5">
-		<table class="table table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>Nome Completo</th>
-					<th>Telefone</th>
-					<th>Logradouro</th>
-					<th>Bairro</th>
-					<th>Número da Casa</th>
-					<th>CPF</th>
-					<th colspan="2" class="text-center"><a class="btn btn-success" href="/cadastrarCliente">Novo Cliente</a></th>
-
-				</tr>
-			</thead>
-			<tbody>
-				<tr th:each="cliente : ${clientes}">
-					<td><span th:text="${cliente.cliente_nome_completo}"></span></td>
-					<td><span th:text="${cliente.cliente_telefone}"></span></td>
-					<td><span th:text="${cliente.cliente_rua}"></span></td>
-					<td><span th:text="${cliente.cliente_bairro}"></span></td>
-					<td><span th:text="${cliente.cliente_numero_casa}"></span></td>
-					<td><span th:text="${cliente.cliente_cpf}"></span></td>
-					<td><a class="btn btn-warning" th:href="@{/editarCliente(codigo=${cliente.codigo})}">Editar</a></td>
-					<td><a class="btn btn-danger" th:href="${(#mvc.url('CC#removerCliente').arg(0, cliente.codigo)).build()}">Remover</a></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-</body>
-
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+	</body>
 </html>

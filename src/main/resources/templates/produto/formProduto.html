@@ -1,70 +1,69 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-	<meta charset="UTF-8" />
-	<title>Loja de Roupas - Cadastro de Produtos</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<link rel="stylesheet" type="text/css" href="../css/index.css">
-	<script type="text/javascript" th:src="@{../js/index.js}"></script>
-</head>
-<body>
-	<nav class="navbar navbar-expand-custom navbar-mainbg">
-		<a class="navbar-brand navbar-logo" href="#">CADASTRANDO PRODUTO</a>
-		<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<i class="fas fa-bars text-white"></i>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav ml-auto">
-				<div class="hori-selector"><div class="left"></div><div class="right"></div></div>
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-cash-register"></i>Vendas</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/indexCliente"><i class="far fa-address-book"></i>Clientes</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/indexFuncionario"><i class="fa-solid fa-user-gear"></i>Funcionários</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="/indexFornecedor"><i class="fa-solid fa-truck"></i>Fornecedores</a>
-				</li>
-				<li class="nav-item active">
-					<a class="nav-link" href="/produtos"><i class="fa-solid fa-box"></i>Produtos</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-chart-column"></i>Relatorios</a>
-				</li>
-			</ul>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Loja de Roupas - Cadastro de Produtos</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<script type="text/javascript" th:src="@{../js/index.js}"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-custom navbar-mainbg">
+			<a class="navbar-brand navbar-logo" href="#">CADASTRANDO PRODUTO</a>
+			<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexVendas"><i class="fa-solid fa-cash-register"></i>Vendas</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexCliente"><i class="far fa-address-book"></i>Clientes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexFuncionario"><i class="fa-solid fa-user-gear"></i>Funcionários</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexFornecedor"><i class="fa-solid fa-truck"></i>Fornecedores</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/produtos"><i class="fa-solid fa-box"></i>Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-chart-column"></i>Relatorios</a>
+					</li>
+				</ul>
+			</div>
+		</nav>
+		<div class="container mt-5">
+			<form method="post">
+				<div class="form-group">
+					<label for="label1">Código de Barras:</label>
+					<input type="text" name="cod_barras" placeholder="Ex: 987654321" class="form-control" id="label1" />
+				</div>
+				<div class="form-group">
+					<label for="label2">Cor:</label>
+					<input type="text" name="cor" placeholder="Ex: Preto" class="form-control" id="label2"/>
+				</div>
+				<div class="form-group">
+					<label for="label3">Tamanho:</label>
+					<input type="text" name="tamanho" placeholder="Ex: G" class="form-control" id="label3"/>
+				</div>
+				<div class="form-group">
+					<label for="label4">Valor:</label>
+					<input type="number" min="0.00" step="0.01" name="valor" placeholder="Ex: 100,0"  class="form-control" id="label4"/>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success" type="submit">Salvar</button>
+					<a class="btn btn-primary" href="/produtos">Voltar a Área de Produtos</a>
+				</div>
+			</form>
 		</div>
-	</nav>
-
-<div class="container mt-5">
-	<form method="post">
-		<div class="form-group">
-			<label for="label1">Código de Barras:</label>
-			<input type="text" name="cod_barras" placeholder="Ex: 987654321" class="form-control" id="label1" />
-		</div>
-		<div class="form-group">
-			<label for="label2">Cor:</label>
-			<input type="text" name="cor" placeholder="Ex: Preto" class="form-control" id="label2"/>
-		</div>
-		<div class="form-group">
-			<label for="label3">Tamanho:</label>
-			<input type="text" name="tamanho" placeholder="Ex: G" class="form-control" id="label3"/>
-		</div>
-		<div class="form-group">
-			<label for="label4">Valor:</label>
-			<input type="number" min="0.00" step="0.01" name="valor" placeholder="Ex: 100,0"  class="form-control" id="label4"/>
-		</div>
-		<div class="form-group">
-			<button class="btn btn-success" type="submit">Salvar</button>
-			<a class="btn btn-primary" href="/produtos">Voltar a Área de Produtos</a>
-		</div>
-	</form>
-</div>
-</body>
+	</body>
 </html>
