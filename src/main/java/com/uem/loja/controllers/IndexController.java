@@ -31,5 +31,11 @@ public class IndexController {
         ModelAndView mv = new ModelAndView("Login");
         return mv;
     }
+
+	@RequestMapping("/indexVendas")
+	public String indexVendas() {
+		
+		return "redirect:/vendas";
+	}
 	
 }
