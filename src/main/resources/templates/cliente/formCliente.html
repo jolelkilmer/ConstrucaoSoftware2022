@@ -1,55 +1,80 @@
 <!DOCTYPE html>
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
-<head>
-<meta charset="UTF-8" />
-<title>Loja de Roupas - Cadastro de Clientes</title>
-<link rel="stylesheet" 
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" 
-	integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
-<body>
-
-	<div class="container">
-
-		<h1>Cadastro de Clientes</h1>
-		<form th:object="${cliente}" method="post">
-			<div class="form-group">
-				<label for="label1">Nome Completo:</label>
-				<span th:if="${#fields.hasErrors('cliente_nome_completo')}" th:errors="*{cliente_nome_completo}" class="text-danger"></span>
-				<input type="text" value="" name="cliente_nome_completo" placeholder="Nome Completo" class="form-control" id="label1" required/> 
+	<head>
+		<meta charset="UTF-8" />
+		<title>Loja de Roupas - Cadastro de Clientes</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="../css/index.css">
+		<script type="text/javascript" th:src="@{../js/index.js}"></script>
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-custom navbar-mainbg">
+			<a class="navbar-brand navbar-logo" href="#">CADASTRANDO CLIENTE</a>
+			<button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+				<i class="fas fa-bars text-white"></i>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav ml-auto">
+					<div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-cash-register"></i>Vendas</a>
+					</li>
+					<li class="nav-item active">
+						<a class="nav-link" href="/indexCliente"><i class="far fa-address-book"></i>Clientes</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexFuncionario"><i class="fa-solid fa-user-gear"></i>Funcionários</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/indexFornecedor"><i class="fa-solid fa-truck"></i>Fornecedores</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/produtos"><i class="fa-solid fa-box"></i>Produtos</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="javascript:void(0);"><i class="fa-solid fa-chart-column"></i>Relatorios</a>
+					</li>
+				</ul>
 			</div>
-			<div class="form-group">
-				<label for="label2">Telefone:</label>
-				<input type="text" value="" name="cliente_telefone" placeholder="Telefone" class="form-control" id="label2" data-mask="(00) 0 0000-0000"/> 
-			</div>
-			<div class="form-group">
-				<label for="label3">Nome da Rua:</label>
-				<input type="text"  value="" name="cliente_rua" placeholder="Nome da Rua" class="form-control" id="label3"/>
-			</div>
-			<div class="form-group">
-				<label for="label4">Bairro:</label>
-				<input type="text" value="" name="cliente_bairro" placeholder="Bairro" class="form-control" id="label4"/> 
-			</div>
-			<div class="form-group">
-				<label for="label5">Número da Casa:</label>
-				<input type="text" value="" name="cliente_numero_casa" placeholder="Número da Casa" class="form-control" id="label5" maxlength="8"/> 
-			</div>
-			<div class="form-group">
-				<label for="label6">C.P.F:</label>
-				<span th:if="${#fields.hasErrors('cliente_cpf')}" th:errors="*{cliente_cpf}" class="text-danger"></span>
-				<input type="text" value="" name="cliente_cpf" placeholder="C.P.F" class="form-control" id="label6"/ data-mask="000.000.000-00"required>
-			</div>
-			<div class="form-group">
-				<button class="btn btn-primary" type="submit">Salvar Cadastro</button> <a class="btn btn-primary" href="/indexCliente">Voltar a Área de Clientes</a>
-			</div>
-			
-	</form>
-	
-	</div>
-	
-	
-	<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-	<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
-</body>
+		</nav>
+		<div class="container mt-3">
+			<form th:object="${cliente}" method="post">
+				<div class="form-group">
+					<label for="label1">Nome Completo:</label>
+					<span th:if="${#fields.hasErrors('cliente_nome_completo')}" th:errors="*{cliente_nome_completo}" class="text-danger"></span>
+					<input type="text" value="" name="cliente_nome_completo" placeholder="Nome Completo" class="form-control" id="label1" required/>
+				</div>
+				<div class="form-group">
+					<label for="label2">Telefone:</label>
+					<input type="text" value="" name="cliente_telefone" placeholder="Telefone" class="form-control" id="label2" data-mask="(00) 0 0000-0000"/>
+				</div>
+				<div class="form-group">
+					<label for="label3">Nome da Rua:</label>
+					<input type="text"  value="" name="cliente_rua" placeholder="Nome da Rua" class="form-control" id="label3"/>
+				</div>
+				<div class="form-group">
+					<label for="label4">Bairro:</label>
+					<input type="text" value="" name="cliente_bairro" placeholder="Bairro" class="form-control" id="label4"/>
+				</div>
+				<div class="form-group">
+					<label for="label5">Número da Casa:</label>
+					<input type="text" value="" name="cliente_numero_casa" placeholder="Número da Casa" class="form-control" id="label5" maxlength="8"/>
+				</div>
+				<div class="form-group">
+					<label for="label6">C.P.F:</label>
+					<span th:if="${#fields.hasErrors('cliente_cpf')}" th:errors="*{cliente_cpf}" class="text-danger"></span>
+					<input type="text" value="" name="cliente_cpf" placeholder="C.P.F" class="form-control" id="label6"/ data-mask="000.000.000-00"required>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success" type="submit">Salvar Cadastro</button> <a class="btn btn-primary" href="/indexCliente">Voltar a Área de Clientes</a>
+				</div>
+			</form>
+		</div>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<script src="/webjars/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+	</body>
 </html>
