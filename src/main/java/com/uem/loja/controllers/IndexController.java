@@ -38,4 +38,10 @@ public class IndexController {
 		return "redirect:/vendas";
 	}
 	
+	@RequestMapping("/indexRelatorios")
+	public String indexRelatorios() {
+		
+		return "redirect:/relatorios";
+	}
+	
 }

@@ -26,6 +26,6 @@ public class ImplementsUserDetailsService implements UserDetailsService {
         if(funcionario == null){
             throw new UsernameNotFoundException("Usuario não encontrado");
         }
-        return new User(funcionario.getCpf(),funcionario.getSenha(),true,true,true,true, funcionario.getAuthorities());
+        return new User(funcionario.getUsername(),funcionario.getPassword(),true,true,true,true, funcionario.getAuthorities());
     }
 }
