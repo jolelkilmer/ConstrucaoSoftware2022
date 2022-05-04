@@ -33,9 +33,10 @@ public class VendaController {
 
     @RequestMapping("/vendas")
 	public ModelAndView listaVendas(Model model) {
+		Cliente cliente = new Cliente("", "");
 		ModelAndView mv = new ModelAndView("vendas/indexVendas");
 		model.addAttribute("funcionario", new Funcionario());
-		model.addAttribute("cliente", new Cliente());
+		model.addAttribute("cliente", cliente);
 		mv.addObject("cliente");
 		return mv;
 	}
@@ -46,7 +47,8 @@ public class VendaController {
 		ModelAndView modelAndView = new ModelAndView("vendas/indexVendas");
 
 		if(codigoFuncionario != 0){
-			Funcionario funcionario = funcionarioRepository.findByCodigo(codigoFuncionario);
+			Funcionario funcionario = funcionarioRepository.findByCpf(Long.toString(codigoFuncionario));
+			//Funcionario funcionario = funcionarioRepository.findByCodigo(codigoFuncionario);
 			if(funcionario != null){
 				modelAndView.addObject("funcionario", funcionario);
 			}
