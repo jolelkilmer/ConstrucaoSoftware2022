@@ -43,7 +43,7 @@ public class VendaController {
 
 	@RequestMapping(value = "/buscarDados")
 	@ResponseBody
-	public ModelAndView buscarCliente(@RequestParam("codigoFuncionario") long codigoFuncionario, @RequestParam("codigoCliente") long codigoCliente, Model model, @ModelAttribute("funcionario") Funcionario funcionarios, @ModelAttribute("cliente") Cliente clientes) {
+	public ModelAndView buscarCliente(@RequestParam(value = "codigoFuncionario", required = false, defaultValue = "0") long codigoFuncionario, @RequestParam(value = "codigoCliente", required = false, defaultValue = "0") long codigoCliente, Model model, @ModelAttribute("funcionario") Funcionario funcionarios, @ModelAttribute("cliente") Cliente clientes) {
 		ModelAndView modelAndView = new ModelAndView("vendas/indexVendas");
 
 		if(codigoFuncionario != 0){
