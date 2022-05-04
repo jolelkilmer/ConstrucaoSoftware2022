@@ -3,11 +3,16 @@ package com.uem.loja.models;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -19,6 +24,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Entity
+@Table(name = "venda")
 public class Venda implements Serializable{
 
 	@Id
@@ -37,6 +43,4 @@ public class Venda implements Serializable{
 	//@JoinColumn(name = "codigo_funcionario")
 	private Funcionario funcionario;
 
-	//@OneToMany(mappedBy = "venda", cascade = CascadeType.ALL, orphanRemoval = true)
-	//private List<ItemVenda> itens = new ArrayList<>();
 }

@@ -2,7 +2,100 @@
 <html xmlns:th="http://thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-	<title>Cadastro de venda</title>
+	<meta charset="UTF-8"/>
+	<title>Loja de Roupas</title>
+
+	<link rel="stylesheet"
+		href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+		integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+		crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../css/index.css">
+	<script type="text/javascript" th:src="@{../js/index.js}"></script>
 </head>
-TESTE
+	<body>
+		<nav class="navbar navbar-expand-custom navbar-mainbg">
+            <a class="navbar-brand navbar-logo" href="#">SISTEMA</a>
+            <button class="navbar-toggler" type="button" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars text-white"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto">
+                    <div class="hori-selector"><div class="left"></div><div class="right"></div></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/indexVendas"><i class="fa-solid fa-cash-register"></i>Vendas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/indexCliente"><i class="far fa-address-book"></i>Clientes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/indexFuncionario"><i class="fa-solid fa-user-gear"></i>Funcionários</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/indexFornecedor"><i class="fa-solid fa-truck"></i>Fornecedores</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/produtos"><i class="fa-solid fa-box"></i>Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/indexRelatorios"><i class="fa-solid fa-chart-column"></i>Relatorios</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+		<div class="container">
+			<div class="card-body">
+				<div class="row">
+					<div class="text-sm-12">
+						<h2>Vendas</h2>
+					</div>
+				</div>
+			</div>
+			<form id="buscarDados" action="#" method="get" class="col-lg-10" th:action="@{/buscarDados}" th:object="${funcionario}">	
+				<div class="form-group col-lg-12 d-inline-block">
+					<input type="button" class="btn btn-primary col-2 d-inline-block" value="Vendedor">
+					<input type="text" class="form-control col-lg-2 d-inline-block" id="codigoFuncionario" th:value="${funcionario.codigo}" name="codigoFuncionario" value="0"  placeholder="Código">
+					<input type="text" class="form-control col-lg-7 d-inline-block" id="nomeFuncionario" th:value="${funcionario.nome_completo}" placeholder="">
+				</div>			
+				<div class="form-group col-lg-12 d-inline-block">
+					<input type="button" class="btn btn-primary col-2 d-inline-block" value="Cliente">
+					<input type="text" class="form-control col-lg-2 d-inline-block" id="codigoCliente" th:value="${cliente.codigo}" name="codigoCliente" value="0" placeholder="Código">
+					<input type="text" class="form-control col-lg-7 d-inline-block" id="nomeCliente" th:value="${cliente.cliente_nome_completo}" placeholder="">
+				</div>
+				<button id="buscarDados" class="btn btn-primary d-none">Submit</button>
+
+				<div class="card-body">
+					<div class="row">
+						<div class="text-sm-12">
+							<h2>Itens</h2>
+						</div>
+					</div>
+				</div>
+				<div class="form-group col-lg-12 d-inline-block">
+					<input type="button" class="btn btn-primary col-2 d-inline-block" value="Produto">
+					<input type="text" class="form-control col-lg-2 d-inline-block" id="codigoProduto" name="codigoProduto" value="0" placeholder="Código">
+					<input type="text" class="form-control col-lg-2 d-inline-block" id="valor" name="valor" value="0.00" placeholder="">
+				</div>
+				<div class="form-group col-lg-12 d-inline-block">
+					<input type="button" class="btn btn-primary col-2 d-inline-block" value="Qtde">
+					<input type="text" class="form-control col-lg-2 d-inline-block" id="qtde" name="qtde" value="0" placeholder="Código">
+				</div>
+			</form>
+
+			<table class="table table-bordered table-striped mt-3">
+				<thead>
+					<tr>
+						<th>Código</th>
+						<th>Descricao</th>
+						<th>Qtde</th>
+						<th>Valor.Unit</th>
+						<th>Valor Total</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</body>
 </html>
